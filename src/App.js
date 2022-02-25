@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 import BackToTop from './pages/container/container';
 
 function App() {
   return (
     <reactFragment>
-      <BackToTop />
+      <BrowserRouter>
+        <BackToTop />
+      </BrowserRouter>
     </reactFragment>
   );
 }

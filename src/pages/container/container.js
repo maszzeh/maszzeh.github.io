@@ -1,4 +1,10 @@
 import * as React from 'react';
+import './container.css';
+import {Link, Routes, Route} from 'react-router-dom';
+// import Scroll from 'react-scroll';
+
+import Header from '../header/header';
+
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -60,29 +66,38 @@ ScrollTop.propTypes = {
 export default function BackToTop(props) {
   return (
     <React.Fragment>
-      <CssBaseline />
-      <AppBar>
-        <Toolbar>
-          <Typography variant="h6" component="div">
-            Scroll to see button
-          </Typography>
-        </Toolbar>
+      {/* <CssBaseline /> */}
+
+      <AppBar sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: "static",
+          margin: 0,
+          backgroundColor: "rgb(21, 15, 54)",
+          color: "white",
+          height: "150px",
+      }}>
+        <div className="nav-logo">
+            <h1>GHOZY</h1>
+        </div>
+        <div className="nav-menu">
+          <Link className='link-item' activeClass="active" to="/#home" spy={true} smooth={true} offset={50} duration={500}>Home</Link>
+          <Link className='link-item' activeClass="active" to="/#about" spy={true} smooth={true} offset={50} duration={500}>About</Link>
+          <Link className='link-item' activeClass="active" to="/#profil" spy={true} smooth={true} offset={50} duration={500}>Profil</Link>
+          <Link className='link-item' activeClass="active" to="/#contact" spy={true} smooth={true} offset={50} duration={500}>Contact</Link>
+        </div>
+        <Toolbar id="back-to-top-anchor" />
       </AppBar>
-      <Toolbar id="back-to-top-anchor" />
-      <Container>
-        <Box sx={{ my: 2 }}>
-          {[...new Array(12)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            )
-            .join('\n')}
-        </Box>
-      </Container>
+
+      <div className="main-content">
+          <Header />  
+      </div>
+     
+
       <ScrollTop {...props}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
+        <Fab color="primary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
